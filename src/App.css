@@ -1,0 +1,37 @@
+/* FileUploader.css */
+
+.FileUploader {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px; /* You can adjust the width as needed */
+  margin: auto;
+  background-color: aquamarine;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  height: 40vh; 
+}
+
+.FileUploader label {
+  margin-bottom: 10px;
+}
+
+.FileUploader select,
+.FileUploader input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.FileUploader button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.FileUploader button:hover {
+  background-color: #45a049;
+}
