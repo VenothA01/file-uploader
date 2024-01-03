@@ -1,10 +1,24 @@
-FROM node:lts-alpine
-ENV NODE_ENV=production
+# Use the official Node.js image as the base image
+FROM node:14-alpine
+
+# Set the working directory in the container
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install project dependencies
+RUN npm install
+
+# Copy the rest of the application code
 COPY . .
+
+# Build the React app
+RUN npm run build
+
+# Expose the port that the app will run on (adjust if needed)
 EXPOSE 3000
-RUN chown -R node /usr/src/app
-USER node
+
+# Command to start the application
 CMD ["npm", "start"]
+
